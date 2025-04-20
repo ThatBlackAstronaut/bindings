@@ -226,7 +226,7 @@ enum class GJSongError {
     DownloadSFXFailed = 2
 };
 enum class GJSongType {
-    Music = 0,
+    Music = -1,
     NCS = 1,
 };
 enum class LikeItemType {
@@ -336,7 +336,11 @@ enum class SongSelectType {
     Default = 0,
     Custom = 1
 };
-enum class AudioTargetType {};
+enum class AudioTargetType {
+    SFXChannel = 0,
+    SFXGroup = 1,
+    MusicChannel = 2
+};
 enum class FMODReverbPreset {
     Generic = 0,
     PaddedCell = 1,
@@ -389,9 +393,46 @@ enum class AudioModType {
     Speed = 0,
     Volume = 1
 };
-enum class GJAreaActionType {};
-enum class GJSmartDirection {};
-enum class SmartBlockType {};
+enum class GJAreaActionType {
+    Move = 0,
+    Rotate = 1,
+    Scale = 2,
+    Fade = 3,
+    Tint = 4
+};
+enum class GJSmartDirection {
+    Top = 1,
+    Bottom = 2,
+    Left = 3,
+    Right = 4,
+    TopLeft = 5,
+    TopRight = 6,
+    BottomLeft = 7,
+    BottomRight = 8
+};
+enum class SmartBlockType {
+    Block = 0x31,
+    NormalSlope1 = 0x32,
+    NormalSlope2 = 0x33,
+    NormalSlope3 = 0x34,
+    NormalSlope4 = 0x35,
+    WideSlope1 = 0x36,
+    WideSlope2 = 0x37,
+    WideSlope3 = 0x38,
+    WideSlope4 = 0x39,
+    WideSlope5 = 0x41,
+    WideSlope6 = 0x42,
+    WideSlope7 = 0x43,
+    WideSlope8 = 0x44,
+    WideSlope9 = 0x45,
+    WideSlope10 = 0x46,
+    WideSlope11 = 0x47,
+    WideSlope12 = 0x48,
+    WideSlope13 = 0x49,
+    WideSlope14 = 0x4A,
+    WideSlope15 = 0x4B,
+    WideSlope16 = 0x4C
+};
 enum class TouchTriggerControl {
     Both = 0,
     Player1 = 1,
@@ -403,9 +444,13 @@ enum class AudioSortType {
     LengthAscending = 2,
     LengthDescending = 3,
     IDAscending = 4,
-    IDDescending = 5
+    IDDescending = 5,
+    SongOrder = 6
 };
-enum class spriteMode {};
+enum class spriteMode {
+    FrameByFrame = 1,
+    PartAnim = 2
+};
 enum class GJAssetType {
     Song = 1,
     SFX = 2
@@ -419,7 +464,18 @@ enum class LevelLeaderboardMode {
     Time = 0,
     Points = 1
 };
-enum class StatKey {};
+enum class StatKey {
+    FirePath = 30,
+    IcePath = 31,
+    PoisonPath = 32,
+    ShadowPath = 33,
+    LavaPath = 34,
+    EarthPath = 35,
+    BloodPath = 36,
+    MetalPath = 37,
+    LightPath = 38,
+    SoulPath = 39
+};
 enum class TextStyleType {
     Colored = 1,
     Instant = 2,
@@ -516,7 +572,11 @@ enum class gjParticleValue {
     FrictionR = 0x47,
     PlusMinus26 = 0x48
 };
-enum class ColorSelectType {};
+enum class ColorSelectType {
+    Pulse = 0,
+    Color = 1,
+    Filter = 2
+};
 enum class AudioGuidelinesType {
     GuidelineCreator = 0,
     BPMFinder = 1
@@ -906,7 +966,24 @@ enum class DialogAnimationType {
     FromLeft = 2,
     FromRight = 3,
     FromTop = 4,
-    // a 5th type is defined which acts exactly the same as FromTop
+    FromTop2 = 5
+};
+
+enum class GJColorIndex {
+    BG = 1000,
+    G1 = 1001,
+    L = 1002,
+    TDL = 1003,
+    Obj = 1004,
+    P1 = 1005,
+    P2 = 1006,
+    LBG = 1007,
+    G2 = 1009,
+    Black = 1010,
+    White = 1011,
+    Lighter = 1012,
+    MG = 1013,
+    MG2 = 1014
 };
 
 // Geode Addition
@@ -956,7 +1033,10 @@ enum class ShipStreak {
     ShipFire6 = 6,
 };
 
-enum class TextFadeInStyle {};
+enum class TextFadeInStyle {
+    Fade = 0,
+    Scale = 1
+};
 
 // Geode Addition
 enum class GameOptionsSetting {
